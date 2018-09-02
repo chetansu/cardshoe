@@ -1,0 +1,23 @@
+{
+  "name": "cardshoe",
+  "version": "1.0.0",
+  "description": "Card shoe of Table based games with 52 cards.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chetansu/cardshoe.git"
+  },
+  "keywords": [
+    "card shoe",
+    "card suit"
+  ],
+  "author": "chetansuri",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chetansu/cardshoe/issues"
+  },
+  "homepage": "https://github.com/chetansu/cardshoe#readme"
+}
