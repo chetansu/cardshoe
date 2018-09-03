@@ -1,8 +1,8 @@
 {
   "name": "cardshoe",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Card shoe of Table based games with 52 cards.",
-  "main": "index.js",
+  "main": "card_shoe.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
