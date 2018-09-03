@@ -21,4 +21,11 @@ for(var i = 0;i<8;i++)
 {
     console.log(card_shoe.deal());
 }
-console.log(card_shoe.getDealtCards());
+console.log(card_shoe.dealtCards());
+
+// create card shoe with 2 decks
+card_shoe.setDecks(2);
+for(var i =0;i<23;i++)
+{
+    console.log( card_shoe.deal(5));
+}

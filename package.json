@@ -1,6 +1,6 @@
 {
   "name": "cardshoe",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "Card shoe of Table based games with 52 cards.",
   "main": "card_shoe.js",
   "scripts": {

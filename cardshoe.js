@@ -2,33 +2,45 @@
 
 var cards = (function(){
     // SUIT ORDER WILL BE DIAMOND, CLUB, HEART, SPADE
+    var decks = 1;
     var suits = ["Diamond", "Clubs", "Heart", "Spade"]
     var cardsVal = ["A", "2", "3", "4", "5", "6", "7", "8", "9","10", "J","Q", "K"];
     var cards = [];
     var cardsDealt = [];
 
-    function init(){
+    function init(_decks = 1){
         var count = 0;
-        for(var i =0;i<suits.length;i++)
+        cards = [];
+        cardsDealt = [];
+        for(var i = 0;i<_decks;i++)
         {
-            for(var j=0;j<cardsVal.length;j++)
+            for(var j =0;j<suits.length;j++)
             {
-                cards[count] = suits[i]+"-"+cardsVal[j];
-                count++;
+                for(var k=0;k<cardsVal.length;k++)
+                {
+                    cards[count] = suits[j]+"-"+cardsVal[k];
+                    count++;
+                }
             }
         }
-        cardsDealt = [];
     }
 
-    init();
+    function setDecks(_decks = 1)
+    {
+        decks = _decks;
+        init(_decks);
+    }
+
+    init(1);        // DEFAULT INITIALIZE 1 SET
 
     // FUNC TO RETURN THE CARDS THAT WERE ALREADY DEALT
-    function getDealtCards(){
+    function dealtCards(){
         return cardsDealt;
     }
 
+    // AFTER EVERY GAME SHUFFLE THE CARDS
     function shuffle(){
-       init();
+       init(decks);
     }
 
     // FUNC TO DEAL CARDS
@@ -49,8 +61,9 @@ var cards = (function(){
     // EXPOSED METHODS
     return {
         "shuffle":shuffle,
-        "getDealtCards":getDealtCards,
-        "deal":deal
+        "dealtCards":dealtCards,
+        "deal":deal,
+        "setDecks":setDecks
     }
 }());
 
