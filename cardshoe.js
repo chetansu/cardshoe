@@ -6,12 +6,12 @@ var cards = (function(){
     var suits = ["Diamond", "Clubs", "Heart", "Spade"]
     var cardsVal = ["A", "2", "3", "4", "5", "6", "7", "8", "9","10", "J","Q", "K"];
     var cards = [];
-    var cardsDealt = [];
+    var dealtCards = [];
 
     function init(_decks = 1){
         var count = 0;
         cards = [];
-        cardsDealt = [];
+        dealtCards = [];
         for(var i = 0;i<_decks;i++)
         {
             for(var j =0;j<suits.length;j++)
@@ -34,8 +34,8 @@ var cards = (function(){
     init(1);        // DEFAULT INITIALIZE 1 SET
 
     // FUNC TO RETURN THE CARDS THAT WERE ALREADY DEALT
-    function dealtCards(){
-        return cardsDealt;
+    function getDealtCards(){
+        return dealtCards;
     }
 
     // AFTER EVERY GAME SHUFFLE THE CARDS
@@ -44,25 +44,25 @@ var cards = (function(){
     }
 
     // FUNC TO DEAL CARDS
-    function deal(cardToDeal = 1)
+    function draw(cardToDraw = 1)
     {
-        var chosenCards = [];                                                    // EMPTY ARRAY
-            for(var i = 0;i<cardToDeal;i++)
+        var drawnCards = [];                                                    // EMPTY ARRAY
+            for(var i = 0;i<cardToDraw;i++)
             {
                 var randomCardIndex = Math.floor(Math.random() * cards.length + 0);
-                var dealCard = (cards.length > 0)? cards[randomCardIndex]: "";
+                var drawnCard = (cards.length > 0)? cards[randomCardIndex]: "";
                 cards.splice(randomCardIndex, 1);
-                chosenCards.push(dealCard);
-                cardsDealt.push(dealCard);
+                drawnCards.push(drawnCard);
+                dealtCards.push(drawnCard);
             }
-        return chosenCards;
+        return drawnCards;
     }
 
     // EXPOSED METHODS
     return {
         "shuffle":shuffle,
-        "dealtCards":dealtCards,
-        "deal":deal,
+        "getDealtCards":getDealtCards,
+        "draw":draw,
         "setDecks":setDecks
     }
 }());

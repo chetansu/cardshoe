@@ -29,14 +29,14 @@ card_shoe.cards.setDecks(n);  // CREATES n SETS OF CARDS
 
 to pull cards use the following  
 ```sh
-card_shoe.cards.deal(1)       // FOR DEALING 1 CARD - RETURNS ARRAY OF LENGTH 1
-card_shoe.cards.deal(2)       // FOR DEALING 2 CARDS - RETURNS ARRAY OF LENGTH 2
-card_shoe.cards.deal(n)       // FOR DEALING n CARDS - RETURNS ARRAY OF LENGTH n
+card_shoe.cards.draw(1)       // FOR DEALING 1 CARD - RETURNS ARRAY OF LENGTH 1
+card_shoe.cards.draw(2)       // FOR DEALING 2 CARDS - RETURNS ARRAY OF LENGTH 2
+card_shoe.cards.draw(n)       // FOR DEALING n CARDS - RETURNS ARRAY OF LENGTH n
 ```
 
 to get the history of all cards dealt
 ```sh
-card_shoe.cards.dealtCards()       // RETURNS ALL THE DEALT CARD INFO AS AN ARRAY
+card_shoe.cards.getDealtCards()       // RETURNS ALL THE DEALT CARD INFO AS AN ARRAY
 ```
 
 After the end of each game call the shuffle to reset the card_shoe with the predefined set of decks
