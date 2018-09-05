@@ -22,26 +22,26 @@ Once imported the library will create a 1 deck card shoe with 52 cards by defaul
 for having more than 1 deck of cards 
 
 ```sh
-card_shoe.cards.setDecks(2);  // CREATES 2 SETS OF CARDS
-card_shoe.cards.setDecks(3);  // CREATES 3 SETS OF CARDS
-card_shoe.cards.setDecks(n);  // CREATES n SETS OF CARDS
+card_shoe.setDecks(2);  // CREATES 2 SETS OF CARDS
+card_shoe.setDecks(3);  // CREATES 3 SETS OF CARDS
+card_shoe.setDecks(n);  // CREATES n SETS OF CARDS
 ```
 
 to pull cards use the following  
 ```sh
-card_shoe.cards.draw(1)       // FOR DEALING 1 CARD - RETURNS ARRAY OF LENGTH 1
-card_shoe.cards.draw(2)       // FOR DEALING 2 CARDS - RETURNS ARRAY OF LENGTH 2
-card_shoe.cards.draw(n)       // FOR DEALING n CARDS - RETURNS ARRAY OF LENGTH n
+card_shoe.draw(1)       // FOR DEALING 1 CARD - RETURNS ARRAY OF LENGTH 1
+card_shoe.draw(2)       // FOR DEALING 2 CARDS - RETURNS ARRAY OF LENGTH 2
+card_shoe.draw(n)       // FOR DEALING n CARDS - RETURNS ARRAY OF LENGTH n
 ```
 
 to get the history of all cards dealt
 ```sh
-card_shoe.cards.getDealtCards()       // RETURNS ALL THE DEALT CARD INFO AS AN ARRAY
+card_shoe.getDealtCards()       // RETURNS ALL THE DEALT CARD INFO AS AN ARRAY
 ```
 
 After the end of each game call the shuffle to reset the card_shoe with the predefined set of decks
 ```sh
-card_shoe.cards.shuffle();
+card_shoe.shuffle();
 ```
 
 
