@@ -3,7 +3,7 @@
     "mocha": "^10.1.0"
   },
   "name": "cardshoe",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Card shoe of Table based games with 52 cards.",
   "main": "index.js",
   "scripts": {
