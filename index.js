@@ -1,70 +1,69 @@
 // CARD SHOE
 
-var cards = (function(){
+const cards = (() => {
     // SUIT ORDER WILL BE DIAMONDS, CLUBS, HEARTS, SPADES
-    var decks = 1;
-    var suits = ["diamonds", "clubs", "hearts", "spades"]
-    var cardsVal = ["A", "2", "3", "4", "5", "6", "7", "8", "9","10", "J","Q", "K"];
-    var cards = [];
-    var dealtCards = [];
+    let decks = 1;
+    const suits = ["diamonds", "clubs", "hearts", "spades"];
+    const cardsVal = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
+    const delimiter = "-";
+    let cards = [];
+    let dealtCards = [];
 
-    function init(_decks = 1){
+    const init = () => {
         var count = 0;
         cards = [];
         dealtCards = [];
-        for(var i = 0;i<_decks;i++)
-        {
-            for(var j =0;j<suits.length;j++)
-            {
-                for(var k=0;k<cardsVal.length;k++)
-                {
-                    cards[count] = suits[j]+"-"+cardsVal[k];
+
+        for (let i = 0; i < decks; i++) {
+            suits.map((suit) => {
+                cardsVal.map((cardVal) => {
+                    cards[count] = suit + delimiter + cardVal;
                     count++;
-                }
-            }
+                });
+            });
         }
-    }
+    };
 
-    function setDecks(_decks = 1)
-    {
-        decks = _decks;
-        init(_decks);
-    }
-
-    init(1);        // DEFAULT INITIALIZE 1 SET
+    // IF MORE THAN 1 SET THEN YOU NEED TO SET THE DECK COUNT
+    const setDecks = (deckCount) => {
+        decks = deckCount;
+        init();
+    };
 
     // FUNC TO RETURN THE CARDS THAT WERE ALREADY DEALT
-    function getDealtCards(){
-        return dealtCards;
-    }
-
-    // AFTER EVERY GAME SHUFFLE THE CARDS
-    function shuffle(){
-       init(decks);
-    }
+    const getDealtCards = () => dealtCards;
 
     // FUNC TO DEAL CARDS
-    function draw(cardToDraw = 1)
-    {
-        var drawnCards = [];                                                    // EMPTY ARRAY
-            for(var i = 0;i<cardToDraw;i++)
-            {
-                var randomCardIndex = Math.floor(Math.random() * cards.length + 0);
-                var drawnCard = (cards.length > 0)? cards[randomCardIndex]: "";
-                cards.splice(randomCardIndex, 1);
-                drawnCards.push(drawnCard);
-                dealtCards.push(drawnCard);
+    const draw = (cardToDraw = 1) => {
+        let drawnCards = [];
+        for (let i = 0; i < cardToDraw; i++) {
+            let randomCardIndex = Math.floor(Math.random() * cards.length + 0);
+            try {
+                if (cards.length > 0) {
+                    let drawnCard = cards[randomCardIndex];
+                    cards.splice(randomCardIndex, 1);
+                    drawnCards.push(drawnCard);
+                    dealtCards.push(drawnCard);
+                } else {
+                    throw new Error("card shoe empty : There are no more cards in card shoe left.");
+                }
+            } catch (e) {
+                console.error(e.stack);
+                process.exit();
             }
+        }
         return drawnCards;
-    }
+    };
+
+    init();
 
     // EXPOSED METHODS
     return {
-        "shuffle":shuffle,
-        "getDealtCards":getDealtCards,
-        "draw":draw,
-        "setDecks":setDecks
-    }
-}());
+        "shuffle": init,
+        "getDealtCards": getDealtCards,
+        "draw": draw,
+        "setDecks": setDecks
+    };
+})();
 
 module.exports = cards;

@@ -1,10 +1,13 @@
 {
+  "dependencies": {
+    "mocha": "^10.1.0"
+  },
   "name": "cardshoe",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Card shoe of Table based games with 52 cards.",
-  "main": "card_shoe.js",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -12,9 +15,13 @@
   },
   "keywords": [
     "card shoe",
-    "card suit"
+    "card suit",
+    "poker",
+    "rummy",
+    "card games",
+    "Blackjack"
   ],
-  "author": "chetansuri",
+  "author": "Chetan Suri",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/chetansu/cardshoe/issues"
